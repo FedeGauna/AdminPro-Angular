@@ -20,14 +20,14 @@
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                <app-incrementador (cambioValor)="progreso1 = $event" leyenda="Progress Azul" [progreso]="progreso1"></app-incrementador>
+                <app-numericUpDown (changeValue)="progreso1 = $event" legend="Progress Blue" [progress]="progreso1"></app-numericUpDown>
             </div>
         </div>
     </div>
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                <app-incrementador (cambioValor)="progreso2 = $event" leyenda="Progress Verde" [progreso]="progreso2"></app-incrementador>
+                <app-numericUpDown (changeValue)="progreso2 = $event" legend="Progress Green" [progress]="progreso2"></app-numericUpDown>
             </div>
         </div>
     </div>

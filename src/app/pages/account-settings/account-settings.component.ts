@@ -9,25 +9,25 @@ import { SettingsService } from 'src/app/services/settings/settings.service';
 export class AccountSettingsComponent implements OnInit {
 
 // tslint:disable-next-line: variable-name
-  constructor( public _ajustes: SettingsService ) { }
+  constructor( public _settings: SettingsService ) { }
 
   ngOnInit() {
     this.colocarCheck();
   }
 
-  cambiarColor( tema: string, link: any ) {
-    console.log( tema );
+  changeColour( theme: string, link: any ) {
+    console.log( theme );
 
-    this.aplicarCheck( link );
-    this._ajustes.aplicarTema( tema );
+    this.applyCheck( link );
+    this._settings.applyTheme( theme );
 
   }
 
-  aplicarCheck( link: any ) {
+  applyCheck( link: any ) {
 
-    const selectores: any = document.getElementsByClassName('selector');
+    const selectors: any = document.getElementsByClassName('selector');
 
-    for ( const ref of selectores) {
+    for ( const ref of selectors) {
       ref.classList.remove('working');
     }
 
@@ -37,10 +37,10 @@ export class AccountSettingsComponent implements OnInit {
   colocarCheck( ) {
 
     const selectores: any = document.getElementsByClassName('selector');
-    const tema = this._ajustes.ajustes.tema;
+    const theme = this._settings.settings.theme;
 
     for ( const ref of selectores) {
-      if ( ref.getAttribute('data-theme') === tema ) {
+      if ( ref.getAttribute('data-theme') === theme ) {
         ref.classList.add('working');
         break;
       }

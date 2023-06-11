@@ -1,48 +1,50 @@
 import { Injectable, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
+interface Settings {
+  themeUrl: string;
+  theme: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class SettingsService {
 
-  ajustes: Ajustes = {
-    temaUrl: 'assets/css/colors/default.css',
-    tema: 'default'
+  settings: Settings = {
+    themeUrl: 'assets/css/colors/default.css',
+    theme: 'default'
   };
 
   constructor(@Inject(DOCUMENT) private _document) {
-    this.cargarAjustes();
+    this.loadSettings();
   }
 
-  guardarAjustes() {
-    console.log('Guardado en el localStorage');
-    localStorage.setItem('ajustes', JSON.stringify( this.ajustes ));
+  saveSettings() {
+    console.log('Saved in localStorage');
+    localStorage.setItem('settings', JSON.stringify( this.settings ));
   }
 
-  cargarAjustes() {
-    if ( localStorage.getItem('ajustes')) {
-      this.ajustes = JSON.parse( localStorage.getItem('ajustes') );
-      console.log('Cargando de ajustes');
+  loadSettings() {
+    if ( localStorage.getItem('settings')) {
+      this.settings = JSON.parse( localStorage.getItem('settings') );
+      console.log('Loading settings');
 
-      this.aplicarTema( this.ajustes.tema );
+      this.applyTheme( this.settings.theme );
     } else {
-      console.log('Usando valores por defecto');
+      console.log('Using default values');
     }
   }
 
-  aplicarTema( tema: string ) {
-    const url = `assets/css/colors/${ tema }.css`;
-    this._document.getElementById('tema').setAttribute('href', url);
+  applyTheme( theme: string ) {
+    const url = `assets/css/colors/${ theme }.css`;
+    this._document.getElementById('theme').setAttribute('href', url);
 
-    this.ajustes.tema = tema;
-    this.ajustes.temaUrl = url;
+    this.settings.theme = theme;
+    this.settings.themeUrl = url;
 
-    this.guardarAjustes();
+    this.saveSettings();
   }
 }
 
-interface Ajustes {
-  temaUrl: string;
-  tema: string;
-}
+

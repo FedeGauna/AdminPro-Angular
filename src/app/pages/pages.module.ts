@@ -12,11 +12,11 @@ import { ChartsModule } from 'ng2-charts';
 
 
 // Temporal
-import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
-import { GraficoDonaComponent } from '../components/graficoDona/GraficoDonaComponent';
+import { NumericUpDownComponent } from '../components/numericUpDown/numericUpDown.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
-import { PromesasComponent } from './promesas/promesas.component';
+import { PromisesComponent } from './promises/promises.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { DoughnutChartComponent } from '../components/doughnutChart/doughnutChart.component';
 
 @NgModule({
     declarations: [
@@ -24,10 +24,10 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         DashboardComponent,
         ProgressComponent,
         GraphicsOneComponent,
-        IncrementadorComponent,
-        GraficoDonaComponent,
+        NumericUpDownComponent,
+        DoughnutChartComponent,
         AccountSettingsComponent,
-        PromesasComponent,
+        PromisesComponent,
         RxjsComponent
     ],
     exports: [

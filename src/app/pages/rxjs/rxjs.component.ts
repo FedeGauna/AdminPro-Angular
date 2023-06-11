@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscriber, Subscription } from 'rxjs';
-import { retry, map, filter } from 'rxjs/operators';
+import { map, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-rxjs',
@@ -14,11 +14,11 @@ export class RxjsComponent implements OnInit, OnDestroy {
 
   constructor() {
 
-    this.subscription = this.regresaObservable() // .pipe(retry(2)) Si falla, hace dos intentos mas antes de finalizar o ejecutar el error
+    this.subscription = this.returnObservable()
     .subscribe(
       numero => console.log( 'Subs ', numero),
-      error  => console.error('Error en el obs', error ),
-      ()     => console.log('El observador termino!')
+      error  => console.error('Error in the observable', error ),
+      ()     => console.log('Observer finished!')
     );
 
   }
@@ -27,45 +27,34 @@ export class RxjsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    console.log('La pagina se va a cerrar');
+    console.log('The page is going to close');
     this.subscription.unsubscribe();
   }
 
-  regresaObservable(): Observable<any> {
+  returnObservable(): Observable<any> {
 
    return new Observable( (observer: Subscriber<any>) => {
 
-      let contador = 0;
+      let counter = 0;
       const intervalo = setInterval( () => {
-        contador ++;
+        counter ++;
 
-        const salida = {
-          valor: contador
+        const output = {
+          value: counter
         };
 
-
-        observer.next( salida );
-
-        // if ( contador === 3) {
-        //   clearInterval(intervalo);
-        //   observer.complete();
-        // }
-
-        // if ( contador === 2) {
-        //   clearInterval(intervalo);
-        //   observer.error('Auxilio!');
-        // }
+        observer.next( output );
 
       }, 1000);
     }).pipe(
-      map( resp => resp.valor),
-      filter(( valor, index ) => {
-        // console.log('Filter', valor, index);
-        if ( (valor % 2) === 1) {
-          // impar
+      map( resp => resp.value),
+      filter(( value, index ) => {
+        // console.log('Filter', value, index);
+        if ( (value % 2) === 1) {
+          // even
           return true;
         } else {
-          // par
+          // odd
           return false;
         }
       })
