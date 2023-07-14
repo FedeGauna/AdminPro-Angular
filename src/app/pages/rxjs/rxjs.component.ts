@@ -16,7 +16,7 @@ export class RxjsComponent implements OnInit, OnDestroy {
 
     this.subscription = this.returnObservable()
     .subscribe(
-      numero => console.log( 'Subs ', numero),
+      number => console.log( 'Subs ', number),
       error  => console.error('Error in the observable', error ),
       ()     => console.log('Observer finished!')
     );
@@ -27,7 +27,6 @@ export class RxjsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    console.log('The page is going to close');
     this.subscription.unsubscribe();
   }
 
@@ -49,7 +48,6 @@ export class RxjsComponent implements OnInit, OnDestroy {
     }).pipe(
       map( resp => resp.value),
       filter(( value, index ) => {
-        // console.log('Filter', value, index);
         if ( (value % 2) === 1) {
           // even
           return true;

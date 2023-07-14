@@ -12,15 +12,12 @@ export class AccountSettingsComponent implements OnInit {
   constructor( public _settings: SettingsService ) { }
 
   ngOnInit() {
-    this.colocarCheck();
+    this.placeCheck();
   }
 
   changeColour( theme: string, link: any ) {
-    console.log( theme );
-
     this.applyCheck( link );
     this._settings.applyTheme( theme );
-
   }
 
   applyCheck( link: any ) {
@@ -34,12 +31,12 @@ export class AccountSettingsComponent implements OnInit {
     link.classList.add('working');
   }
 
-  colocarCheck( ) {
+  placeCheck( ) {
 
-    const selectores: any = document.getElementsByClassName('selector');
+    const selectors: any = document.getElementsByClassName('selector');
     const theme = this._settings.settings.theme;
 
-    for ( const ref of selectores) {
+    for ( const ref of selectors) {
       if ( ref.getAttribute('data-theme') === theme ) {
         ref.classList.add('working');
         break;
