@@ -35,7 +35,7 @@ export class NumericUpDownComponent implements OnInit {
   }
 
   changeValue(value: number) {
-    if (this.progress >= 100 && value > 0) {
+    if (this.progress >= 100 && value >= 0) {
       this.progress = 100;
       return;
     }

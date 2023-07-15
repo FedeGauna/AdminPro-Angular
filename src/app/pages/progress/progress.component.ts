@@ -7,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProgressComponent implements OnInit {
 
-  progreso1: number = 20;
-  progreso2: number = 30;
+  progressBlue: number = 20;
+  progressGreen: number = 30;
+
+  get getProgressBlue() {
+    return `${ this.progressBlue }%`;
+  }
+  get getProgressGreen() {
+    return `${ this.progressGreen }%`;
+  }
 
   constructor() { }
 
