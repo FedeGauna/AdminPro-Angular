@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MultiDataSet, Label } from 'ng2-charts';
-import { ChartType } from 'chart.js';
+import { ChartType, ChartData } from 'chart.js';
 
 @Component({
   selector: 'app-graphics-one',
@@ -10,10 +9,15 @@ import { ChartType } from 'chart.js';
 export class GraphicsOneComponent implements OnInit {
 
   // Doughnut
-  public doughnutChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
-  public doughnutChartData: MultiDataSet = [
-    [350, 450, 100]
-  ];
+  public doughnutChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
+  public doughnutChartData: ChartData<'doughnut'> = {
+    labels: this.doughnutChartLabels,
+    datasets: [
+      {
+        data: [350, 450, 100]
+      }
+    ]
+  };
   public doughnutChartType: ChartType = 'doughnut';
 
   public charts: any = {

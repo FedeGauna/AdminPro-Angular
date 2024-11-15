@@ -8,7 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { PAGES_ROUTES } from './pages.routes';
 import { FormsModule } from '@angular/forms';
 
-import { ChartsModule } from 'ng2-charts';
+import { NgChartsModule } from 'ng2-charts';
 
 
 // Temporal
@@ -39,7 +39,7 @@ import { DoughnutChartComponent } from '../components/doughnutChart/doughnutChar
         SharedModule,
         PAGES_ROUTES,
         FormsModule,
-        ChartsModule
+        NgChartsModule
     ]
 })
 
