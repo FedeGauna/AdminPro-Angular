@@ -462,10 +462,6 @@ form p:last-child {
   opacity: 0;
 }
 
-[type="checkbox"] {
-  /* checkbox aspect */
-}
-
 [type="checkbox"] + label {
   position: relative;
   padding-left: 35px;
@@ -474,6 +470,7 @@ form p:last-child {
   height: 25px;
   line-height: 25px;
   font-size: 1rem;
+  user-select: none;
   -webkit-user-select: none;
   /* webkit (safari, chrome) browsers */
   -moz-user-select: none;
@@ -658,6 +655,7 @@ form p:last-child {
    ========================================================================== */
 .switch,
 .switch * {
+  user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -khtml-user-select: none;
