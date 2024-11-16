@@ -5,8 +5,10 @@ import { PageNotFoundComponent } from './shared/pageNotFound/pageNotFound.compon
 import { RegisterComponent } from './login/register.component';
 
 const appRoutes: Routes = [
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
+    { path: 'pages', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule) },
     { path: '**', component: PageNotFoundComponent }
 ];
 

@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
     initPlugins();
   }
 
-  ingresar() {
-    this.router.navigate([ '/dashboard' ]);
+  checkCredentials() {
+    this.router.navigate([ '/pages/dashboard' ]);
   }
 
 }
