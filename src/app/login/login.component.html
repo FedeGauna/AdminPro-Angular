@@ -8,7 +8,7 @@
 >
   <div class="login-box card">
     <div class="card-body">
-      <form
+      <form [formGroup]="loginForm"
         class="form-horizontal form-material"
         (ngSubmit)="checkCredentials()"
       >
@@ -22,9 +22,12 @@
             <input
               class="form-control"
               type="text"
-              required=""
               placeholder="User"
+              formControlName="user"
             />
+          </div>
+          <div *ngIf="user.invalid && (user.dirty || user.touched)" class="alert alert-danger">
+            <div *ngIf="user.errors?.['required']">User is required</div>
           </div>
         </div>
         <div class="form-group">
@@ -32,9 +35,14 @@
             <input
               class="form-control"
               type="password"
-              required=""
               placeholder="Password"
+              formControlName="password"
             />
+          </div>
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+            <div *ngFor="let error of getErrors('password')">
+                <p>{{ error }}</p>
+            </div> 
           </div>
         </div>
         <div class="form-group row">
@@ -60,6 +68,7 @@
             <button
               class="btn btn-info btn-lg btn-block text-uppercase btn-rounded"
               type="submit"
+              [disabled]="loginForm.invalid"
             >
               Login
             </button>
