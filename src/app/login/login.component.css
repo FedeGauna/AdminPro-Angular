@@ -73,3 +73,27 @@ Login register and recover password Page
     position: absolute;
     height: 100%;
 }
+
+/* User defined styles */
+
+.password-toggle-btn {
+    width: 35px;
+    height: 35px;
+    background-color: #e3e6e7;
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+    flex-direction: row;
+  }
+  
+  .password-toggle-icon {
+    font-size: 1.2rem;
+    color: #6c757d;
+  }
+  
+  .form-control.with-toggle {
+    padding-right: 3rem;
+  }
+
+  .toggle {
+    display: flex;
+  }

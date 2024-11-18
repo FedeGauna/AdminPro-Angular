@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { passwordCustomValidator } from "./password-custom-validator";
+import { PasswordSettings } from "./password-settings.model";
 
 declare function initPlugins();
 
@@ -12,8 +13,21 @@ declare function initPlugins();
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  showPassword: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, public router: Router) {
+  passwordSettings: PasswordSettings = {
+    inputType: "password",
+    iconClass: {
+      "bi bi-eye":        false,
+      "bi bi-eye-slash":  true,
+    },
+  };
+
+  constructor(private formBuilder: FormBuilder, public router: Router) {}
+
+  ngOnInit() {
+    initPlugins();
+
     this.loginForm = this.formBuilder.group({
       user: ["", Validators.required],
       password: ["", [passwordCustomValidator()]],
@@ -21,11 +35,11 @@ export class LoginComponent implements OnInit {
   }
 
   get user() {
-    return this.loginForm.get('user');
+    return this.loginForm.get("user");
   }
 
   get password() {
-    return this.loginForm.get('password');
+    return this.loginForm.get("password");
   }
 
   getErrors(controlName: string): string[] {
@@ -33,14 +47,18 @@ export class LoginComponent implements OnInit {
     return control && control.errors ? Object.values(control.errors) : [];
   }
 
-  ngOnInit() {
-    initPlugins();
-  }
-
   checkCredentials() {
-    if(this.loginForm.valid)
-    {
+    if (this.loginForm.valid) {
       this.router.navigate(["/pages/dashboard"]);
     }
+  }
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+    this.passwordSettings.inputType = this.showPassword ? "text" : "password";
+    this.passwordSettings.iconClass = {
+      "bi bi-eye": !this.showPassword,
+      "bi bi-eye-slash": this.showPassword,
+    };
   }
 }

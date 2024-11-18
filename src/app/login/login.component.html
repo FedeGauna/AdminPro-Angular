@@ -8,7 +8,9 @@
 >
   <div class="login-box card">
     <div class="card-body">
-      <form [formGroup]="loginForm"
+      <form
+       autocomplete="off"
+        [formGroup]="loginForm"
         class="form-horizontal form-material"
         (ngSubmit)="checkCredentials()"
       >
@@ -26,23 +28,39 @@
               formControlName="user"
             />
           </div>
-          <div *ngIf="user.invalid && (user.dirty || user.touched)" class="alert alert-danger">
+          <div
+            *ngIf="user.invalid && (user.dirty || user.touched)"
+            class="alert alert-danger"
+          >
             <div *ngIf="user.errors?.['required']">User is required</div>
           </div>
         </div>
-        <div class="form-group">
-          <div class="col-xs-12">
+        <div class="form-group ">
+          <div class="col-xs-12 toggle">
             <input
               class="form-control"
-              type="password"
               placeholder="Password"
+              autocomplete="new-password"
+              spellcheck="false"
+              data-form-type="password"
+              [type]="passwordSettings.inputType"
               formControlName="password"
             />
+              <button
+              class="btn position-absolute top-50 end-0 translate-middle-y d-flex align-items-center justify-content-center password-toggle-btn"
+              (click)="togglePassword()"
+              >
+              <i class="password-toggle-icon" [ngClass]="passwordSettings.iconClass"></i>
+            </button>
           </div>
-          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+          
+          <div
+            *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="alert alert-danger"
+          >
             <div *ngFor="let error of getErrors('password')">
-                <p>{{ error }}</p>
-            </div> 
+              <p>{{ error }}</p>
+            </div>
           </div>
         </div>
         <div class="form-group row">
@@ -105,7 +123,7 @@
           </div>
         </div>
       </form>
-      <form class="form-horizontal" id="recoverform" action="index.html">
+      <form autocomplete="off" class="form-horizontal" id="recoverform" action="index.html">
         <div class="form-group">
           <div class="col-xs-12">
             <h3>Recuperar contraseña</h3>
