@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
 import { passwordCustomValidator } from "./password-custom-validator";
 import { PasswordSettings } from "./password-settings.model";
+import { Router } from "@angular/router";
 
 declare function initPlugins();
 
@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
   }
 
   checkCredentials() {
+    this.loginForm.markAllAsTouched();
     if (this.loginForm.valid) {
       this.router.navigate(["/pages/dashboard"]);
     }

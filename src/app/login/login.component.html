@@ -47,8 +47,10 @@
               formControlName="password"
             />
               <button
+              type="button"
               class="btn position-absolute top-50 end-0 translate-middle-y d-flex align-items-center justify-content-center password-toggle-btn"
               (click)="togglePassword()"
+              [disabled]="!password.value"
               >
               <i class="password-toggle-icon" [ngClass]="passwordSettings.iconClass"></i>
             </button>
@@ -86,7 +88,6 @@
             <button
               class="btn btn-info btn-lg btn-block text-uppercase btn-rounded"
               type="submit"
-              [disabled]="loginForm.invalid"
             >
               Login
             </button>
