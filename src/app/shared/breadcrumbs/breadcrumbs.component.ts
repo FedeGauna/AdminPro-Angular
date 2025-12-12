@@ -4,9 +4,10 @@ import { filter, map } from 'rxjs/operators';
 import { Title, Meta, MetaDefinition } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-breadcrumbs',
-  templateUrl: './breadcrumbs.component.html',
-  styles: []
+    selector: 'app-breadcrumbs',
+    templateUrl: './breadcrumbs.component.html',
+    styles: [],
+    standalone: false
 })
 export class BreadcrumbsComponent implements OnInit {
 

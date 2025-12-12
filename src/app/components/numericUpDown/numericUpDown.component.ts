@@ -1,9 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
-  selector: 'app-numericUpDown',
-  templateUrl: './numericUpDown.component.html',
-  styles: []
+    selector: 'app-numericUpDown',
+    templateUrl: './numericUpDown.component.html',
+    styles: [],
+    standalone: false
 })
 export class NumericUpDownComponent implements OnInit {
 

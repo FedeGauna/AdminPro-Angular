@@ -3,9 +3,10 @@ import { Observable, Subscriber, Subscription } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-rxjs',
-  templateUrl: './rxjs.component.html',
-  styles: []
+    selector: 'app-rxjs',
+    templateUrl: './rxjs.component.html',
+    styles: [],
+    standalone: false
 })
 export class RxjsComponent implements OnInit, OnDestroy {
 

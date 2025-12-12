@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-promises',
-  templateUrl: './promises.component.html',
-  styles: []
+    selector: 'app-promises',
+    templateUrl: './promises.component.html',
+    styles: [],
+    standalone: false
 })
 export class PromisesComponent implements OnInit {
 

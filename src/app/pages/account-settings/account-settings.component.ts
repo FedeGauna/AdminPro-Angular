@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { SettingsService } from 'src/app/services/settings/settings.service';
 
 @Component({
-  selector: 'app-account-settings',
-  templateUrl: './account-settings.component.html',
-  styles: []
+    selector: 'app-account-settings',
+    templateUrl: './account-settings.component.html',
+    styles: [],
+    standalone: false
 })
 export class AccountSettingsComponent implements OnInit {
 

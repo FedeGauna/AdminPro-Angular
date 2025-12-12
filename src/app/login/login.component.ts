@@ -7,9 +7,10 @@ import { Router } from "@angular/router";
 declare function initPlugins();
 
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"],
+    selector: "app-login",
+    templateUrl: "./login.component.html",
+    styleUrls: ["./login.component.css"],
+    standalone: false
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;

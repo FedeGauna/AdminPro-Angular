@@ -2,9 +2,10 @@ import { Component, OnInit, Input } from "@angular/core";
 import { ChartData, ChartType } from "chart.js";
 
 @Component({
-  selector: "app-doughnut-chart",
-  templateUrl: "./doughnutChart.component.html",
-  styles: [],
+    selector: "app-doughnut-chart",
+    templateUrl: "./doughnutChart.component.html",
+    styles: [],
+    standalone: false
 })
 export class DoughnutChartComponent implements OnInit {
   @Input() labels: string[] = [

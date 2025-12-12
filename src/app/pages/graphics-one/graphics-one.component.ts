@@ -2,9 +2,10 @@ import { Component } from "@angular/core";
 import { ChartType, ChartData } from "chart.js";
 
 @Component({
-  selector: "app-graphics-one",
-  templateUrl: "./graphics-one.component.html",
-  styles: [],
+    selector: "app-graphics-one",
+    templateUrl: "./graphics-one.component.html",
+    styles: [],
+    standalone: false
 })
 export class GraphicsOneComponent {
   // Doughnut
