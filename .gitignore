@@ -45,3 +45,52 @@ testem.log
 .DS_Store
 Thumbs.db
 .angular/
+
+# Secrets and env files
+.env
+.env.*        # env.* (e.g. .env.production)
+.env.*.local
+.env.local
+local.settings.json
+
+# Angular local override files for environments 
+src/environments/environment*.local.ts
+src/environments/environment.local.ts
+
+# Keys and certs
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
+*.crt
+*.csr
+
+# Credential files
+credentials.json
+secrets.json
+*.secret
+*.enc
+
+# Package manager auth / debug
+.npmrc
+.yarnrc
+.pnpm-debug.log
+pnpm-lock.yaml
+
+# Caches / build artifacts / test output
+.nyc_output
+.cache
+.parcel-cache
+.next
+out
+/.cache
+
+# Editor/OS temp and swap files
+*.swp
+*.swo
+*~
+Desktop.ini
+
+# Node repl history
+.node_repl_history
