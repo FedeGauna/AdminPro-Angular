@@ -53,6 +53,9 @@ Thumbs.db
 .env.local
 local.settings.json
 
+# Allow example env file
+!.env.example
+
 # Angular local override files for environments 
 src/environments/environment*.local.ts
 src/environments/environment.local.ts
@@ -94,3 +97,8 @@ Desktop.ini
 
 # Node repl history
 .node_repl_history
+
+# Playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/

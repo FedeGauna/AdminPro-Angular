@@ -17,9 +17,11 @@
               "base": "dist/adminpro"
             },
             "index": "src/index.html",
-            "polyfills": ["src/polyfills.ts"],
+            "polyfills": [
+              "src/polyfills.ts"
+            ],
             "tsConfig": "src/tsconfig.app.json",
-            "sourceMap": true,  
+            "sourceMap": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -29,7 +31,9 @@
               "node_modules/@mdi/font/css/materialdesignicons.min.css",
               "src/styles.css"
             ],
-            "allowedCommonJsDependencies": ["bootstrap"],
+            "allowedCommonJsDependencies": [
+              "bootstrap"
+            ],
             "preserveSymlinks": true,
             "aot": false,
             "optimization": false,
@@ -111,33 +115,16 @@
               "**/node_modules/**"
             ]
           }
-        }
-      }
-    },
-    "adminpro-e2e": {
-      "root": "e2e/",
-      "projectType": "application",
-      "prefix": "",
-      "architect": {
+        },
         "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
+          "builder": "playwright-ng-schematics:playwright",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
             "devServerTarget": "adminpro:serve"
           },
           "configurations": {
             "production": {
               "devServerTarget": "adminpro:serve:production"
             }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }
