@@ -10,7 +10,7 @@ import { SettingsService } from 'src/app/services/settings/settings.service';
 export class AppComponent {
   title = 'adminpro';
 
-  constructor( public ajustes: SettingsService ) {
+  constructor(public settings: SettingsService ) {
 
   }
 }
