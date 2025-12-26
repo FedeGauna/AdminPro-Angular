@@ -4,6 +4,10 @@ import { passwordCustomValidator } from "./password-custom-validator";
 import { PasswordSettings } from "./password-settings.model";
 import { Router, RouterLink } from "@angular/router";
 import { NgClass, CommonModule } from "@angular/common";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faFacebookF, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
+
+
 
 declare function initPlugins();
 
@@ -12,12 +16,14 @@ declare function initPlugins();
     templateUrl: "./login.component.html",
     styleUrls: ["./login.component.css"],
     standalone: true,
-    imports: [FormsModule, ReactiveFormsModule, NgClass, RouterLink, CommonModule],
+    imports: [FormsModule, ReactiveFormsModule, NgClass, RouterLink, CommonModule, FontAwesomeModule],
     
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   showPassword: boolean = false;
+  faFacebook = faFacebookF;
+  faGoogle = faGooglePlusG;
 
   passwordSettings: PasswordSettings = {
     inputType: "password",
