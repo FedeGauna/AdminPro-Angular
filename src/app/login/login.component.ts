@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { passwordCustomValidator } from "./password-custom-validator";
 import { PasswordSettings } from "./password-settings.model";
-import { Router } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
+import { NgClass, CommonModule } from "@angular/common";
 
 declare function initPlugins();
 
@@ -10,7 +11,9 @@ declare function initPlugins();
     selector: "app-login",
     templateUrl: "./login.component.html",
     styleUrls: ["./login.component.css"],
-    standalone: false
+    standalone: true,
+    imports: [FormsModule, ReactiveFormsModule, NgClass, RouterLink, CommonModule],
+    
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;

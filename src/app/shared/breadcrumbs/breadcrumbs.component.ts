@@ -5,9 +5,9 @@ import { Title, Meta, MetaDefinition } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-breadcrumbs',
+    standalone: true,
     templateUrl: './breadcrumbs.component.html',
-    styles: [],
-    standalone: false
+    styles: []
 })
 export class BreadcrumbsComponent implements OnInit {
 

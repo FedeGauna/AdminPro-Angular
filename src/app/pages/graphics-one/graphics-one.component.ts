@@ -1,11 +1,14 @@
 import { Component } from "@angular/core";
 import { ChartType, ChartData } from "chart.js";
+import { KeyValuePipe, CommonModule } from "@angular/common";
+import { DoughnutChartComponent } from "../../components/doughnutChart/doughnutChart.component";
 
 @Component({
     selector: "app-graphics-one",
+    standalone: true,
     templateUrl: "./graphics-one.component.html",
     styles: [],
-    standalone: false
+    imports: [CommonModule, DoughnutChartComponent, KeyValuePipe]
 })
 export class GraphicsOneComponent {
   // Doughnut

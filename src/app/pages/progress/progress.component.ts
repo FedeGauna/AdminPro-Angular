@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { NumericUpDownComponent } from '../../components/numericUpDown/numericUpDown.component';
 
 @Component({
     selector: 'app-progress',
+    standalone: true,
     templateUrl: './progress.component.html',
     styles: [],
-    standalone: false
+    imports: [NumericUpDownComponent]
 })
 export class ProgressComponent implements OnInit {
 

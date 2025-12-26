@@ -3,9 +3,9 @@ import { SettingsService } from 'src/app/services/settings/settings.service';
 
 @Component({
     selector: 'app-account-settings',
+    standalone: true,
     templateUrl: './account-settings.component.html',
-    styles: [],
-    standalone: false
+    styles: []
 })
 export class AccountSettingsComponent implements OnInit {
 

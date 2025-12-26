@@ -4,9 +4,9 @@ import { map, filter } from 'rxjs/operators';
 
 @Component({
     selector: 'app-rxjs',
+    standalone: true,
     templateUrl: './rxjs.component.html',
-    styles: [],
-    standalone: false
+    styles: []
 })
 export class RxjsComponent implements OnInit, OnDestroy {
 

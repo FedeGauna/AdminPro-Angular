@@ -1,10 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-numericUpDown',
+    standalone: true,
     templateUrl: './numericUpDown.component.html',
     styles: [],
-    standalone: false
+    imports: [FormsModule]
 })
 export class NumericUpDownComponent implements OnInit {
 
