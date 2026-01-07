@@ -52,5 +52,8 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "playwright-ng-schematics": "^20.0.2",
     "typescript": "~5.8.3"
+  },
+  "overrides": {
+    "qs": "6.14.1"
   }
 }
