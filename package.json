@@ -58,6 +58,7 @@
     "@modelcontextprotocol/sdk": "1.26.0",
     "hono": "4.11.7",
     "tar": "7.5.8",
-    "lodash-es": "4.17.23"
+    "lodash-es": "4.17.23",
+    "webpack": "5.104.1"
   }
 }
