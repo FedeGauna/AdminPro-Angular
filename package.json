@@ -62,7 +62,8 @@
     "webpack": "5.104.1",
     "ajv": "8.18.0",
     "@angular-devkit/build-angular": {
-      "rollup": "4.59.0"
+      "rollup": "4.59.0",
+      "serialize-javascript": "7.0.3"
     }
   }
 }
