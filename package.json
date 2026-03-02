@@ -63,7 +63,12 @@
     "ajv": "8.18.0",
     "@angular-devkit/build-angular": {
       "rollup": "4.59.0",
-      "serialize-javascript": "7.0.3"
+      "serialize-javascript": "7.0.3",
+      "webpack": {
+        "terser-webpack-plugin": {
+          "serialize-javascript": "7.0.3"
+        }
+      }
     }
   }
 }
