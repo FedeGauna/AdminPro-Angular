@@ -22,23 +22,34 @@ export class SettingsService {
 
   saveSettings() {
     console.log('Saved in localStorage');
-    localStorage.setItem('settings', JSON.stringify( this.settings ));
+    localStorage.setItem('settings', JSON.stringify(this.settings));
   }
 
   loadSettings() {
-    if ( localStorage.getItem('settings')) {
-      this.settings = JSON.parse( localStorage.getItem('settings') );
-      console.log('Loading settings');
+    const stored = localStorage.getItem('settings');
 
-      this.applyTheme( this.settings.theme );
+    if (stored) {
+      try {
+
+        this.settings = JSON.parse(stored);
+        console.log('Loading settings');
+        this.applyTheme(this.settings.theme);
+
+      } catch {
+        console.log('Invalid settings JSON, using defaults');
+      }
     } else {
       console.log('Using default values');
     }
   }
 
-  applyTheme( theme: string ) {
-    const url = `assets/css/colors/${ theme }.css`;
-    this._document.getElementById('theme').setAttribute('href', url);
+  applyTheme(theme: string) {
+    const url = `assets/css/colors/${theme}.css`;
+    const themeLink = this._document.getElementById('theme') as HTMLLinkElement | null;
+
+    if (themeLink) {
+      themeLink.href = url;
+    }
 
     this.settings.theme = theme;
     this.settings.themeUrl = url;

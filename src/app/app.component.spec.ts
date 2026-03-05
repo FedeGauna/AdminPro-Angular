@@ -8,7 +8,7 @@ describe('AppComponent', () => {
       imports: [AppComponent, RouterOutlet],
       providers: [provideRouter([])]
     }).compileComponents();
-  })
+  });
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
@@ -21,6 +21,6 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('router-outlet')).not.toBeNull();
-  })
+  });
 
 });
