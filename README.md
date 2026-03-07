@@ -81,7 +81,7 @@ Notes & security
 
 Version recommendations
 -----------------------
-- Project CLI: Angular CLI 20.3.13
+- Project CLI: Angular CLI 20.3.19
 - Recommended Node.js: LTS (use >=18; 20+ recommended)
 - Angular CLI: install the same major CLI version as the project (e.g. 20.x) or use the project-local CLI (`npx ng` / `npm explore @angular/cli -- npm run ng`) to avoid version mismatches
 
