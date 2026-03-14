@@ -75,13 +75,13 @@ Optional: VS Code
 
 Notes & security
 ----------------
-- This project currently uses Angular CLI 20.3.19. Keep committed files in src/environments/*.ts unless they contain secrets; use .env or local override files (and add them to .gitignore) for secrets.
+- This project currently uses Angular CLI 20.3.20. Keep committed files in src/environments/*.ts unless they contain secrets; use .env or local override files (and add them to .gitignore) for secrets.
 - Do not commit keys, certs, credentials, or environment files with secrets.
 - If you must upgrade Angular/CLI, follow the Angular upgrade guide and run `ng update`. Verify compatibility with your project's Angular version before upgrading the global CLI.
 
 Version recommendations
 -----------------------
-- Project CLI: Angular CLI 20.3.19
+- Project CLI: Angular CLI 20.3.20
 - Recommended Node.js: LTS (use >=18; 20+ recommended)
 - Angular CLI: install the same major CLI version as the project (e.g. 20.x) or use the project-local CLI (`npx ng` / `npm explore @angular/cli -- npm run ng`) to avoid version mismatches
 
