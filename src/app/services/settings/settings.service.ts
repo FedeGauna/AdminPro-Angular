@@ -1,10 +1,15 @@
 import { Injectable, Inject, DOCUMENT } from '@angular/core';
-
+import { AVAILABLE_THEMES, ThemeName } from './themes.config';
 
 interface Settings {
   themeUrl: string;
-  theme: string;
+  theme: ThemeName;
 }
+
+const DEFAULT_SETTINGS: Readonly<Settings> = Object.freeze({
+  themeUrl: 'assets/css/colors/default.css',
+  theme: 'default'
+});
 
 /**
  * Service responsible for managing application settings.
@@ -14,65 +19,99 @@ interface Settings {
   providedIn: 'root'
 })
 export class SettingsService {
-  /**
-   * Current settings including theme and theme URL.
-   */
-  settings: Settings = {
-    themeUrl: 'assets/css/colors/default.css',
-    theme: 'default'
-  };
+  settings: Settings = { ...DEFAULT_SETTINGS };
 
-  /**
-   * Initializes the SettingsService and loads saved settings.
-   * @param _document Reference to the document object for DOM manipulation.
-   */
-  constructor(@Inject(DOCUMENT) private _document) {
+  constructor(@Inject(DOCUMENT) private _document: Document) {
     this.loadSettings();
   }
 
-  /**
-   * Saves the current settings to localStorage.
-   */
-  saveSettings() {
-    console.log('Saved in localStorage');
+  saveSettings(): void {
     localStorage.setItem('settings', JSON.stringify(this.settings));
   }
 
-  /**
-   * Loads settings from localStorage or uses default values if none are found.
-   */
-  loadSettings() {
+  loadSettings(): void {
     const stored = localStorage.getItem('settings');
 
     if (stored) {
       try {
-        this.settings = JSON.parse(stored);
-        console.log('Loading settings');
-        this.applyTheme(this.settings.theme);
+        const parsed = JSON.parse(stored);
+        const validated = this.validateSettings(parsed);
+
+        if (validated) {
+          this.settings = validated;
+          this.applyTheme(this.settings.theme);
+        } else {
+          this.settings = { ...DEFAULT_SETTINGS };
+        }
       } catch {
-        console.log('Invalid settings JSON, using defaults');
+        this.settings = { ...DEFAULT_SETTINGS };
       }
-    } else {
-      console.log('Using default values');
     }
   }
 
-  /**
-   * Applies the specified theme by updating the theme link in the document.
-   * @param theme The name of the theme to apply.
-   */
-  applyTheme(theme: string) {
-    const url = `assets/css/colors/${theme}.css`;
+  applyTheme(theme: string): void {
+    const sanitized = this.sanitizeTheme(theme);
+    const url = `assets/css/colors/${sanitized}.css`;
     const themeLink = this._document.getElementById('theme') as HTMLLinkElement | null;
 
     if (themeLink) {
       themeLink.href = url;
     }
 
-    this.settings.theme = theme;
+    this.settings.theme = sanitized;
     this.settings.themeUrl = url;
-
     this.saveSettings();
+  }
+
+  private sanitizeTheme(theme: string): ThemeName {
+    const normalized = theme.toLowerCase().trim();
+
+    if (AVAILABLE_THEMES.includes(normalized as ThemeName)) {
+      return normalized as ThemeName;
+    }
+
+    return 'default';
+  }
+
+  private validateSettings(data: unknown): Settings | null {
+    if (data === null || typeof data !== 'object') {
+      return null;
+    }
+
+    const obj = data as Record<string, unknown>;
+
+    if (!this.hasValidStructure(obj)) return null;
+    if (!this.hasValidThemeUrl(obj)) return null;
+    if (!this.hasValidTheme(obj)) return null;
+    if (this.isPrototypePollutionAttempt(obj)) return null;
+
+    return {
+      themeUrl: obj.themeUrl as string,
+      theme: obj.theme as ThemeName
+    };
+  }
+
+  private hasValidStructure(data: Record<string, unknown>): boolean {
+    return (
+      typeof data.themeUrl === 'string' &&
+      typeof data.theme === 'string'
+    );
+  }
+
+  private hasValidThemeUrl(data: Record<string, unknown>): boolean {
+    return (data.themeUrl as string).startsWith('assets/css/colors/');
+  }
+
+  private hasValidTheme(data: Record<string, unknown>): boolean {
+    return AVAILABLE_THEMES.includes(data.theme as string as ThemeName);
+  }
+
+  private isPrototypePollutionAttempt(data: Record<string, unknown>): boolean {
+    return (
+      Object.prototype.hasOwnProperty.call(data, '__proto__') ||
+      Object.prototype.hasOwnProperty.call(data, 'constructor') ||
+      Object.prototype.hasOwnProperty.call(data, 'prototype')
+    );
   }
 }
 

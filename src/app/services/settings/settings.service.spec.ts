@@ -61,19 +61,19 @@ describe('SettingsService', () => {
 
     createService();
 
-    service.applyTheme('dark');
+    service.applyTheme('default-dark');
 
     expect(mockDocument.getElementById)
       .toHaveBeenCalledWith('theme');
 
     expect(mockLinkElement.href)
-      .toBe('assets/css/colors/dark.css');
+      .toBe('assets/css/colors/default-dark.css');
 
     expect(service.settings.theme)
-      .toBe('dark');
+      .toBe('default-dark');
 
     expect(service.settings.themeUrl)
-      .toBe('assets/css/colors/dark.css');
+      .toBe('assets/css/colors/default-dark.css');
 
   });
 
@@ -95,8 +95,8 @@ describe('SettingsService', () => {
   it('should load settings from localStorage and apply theme', () => {
 
     const storedSettings = {
-      theme: 'dark',
-      themeUrl: 'assets/css/colors/dark.css'
+      theme: 'default-dark',
+      themeUrl: 'assets/css/colors/default-dark.css'
     };
 
     jest.spyOn(Storage.prototype, 'getItem')
@@ -105,10 +105,10 @@ describe('SettingsService', () => {
     createService();
 
     expect(service.settings.theme)
-      .toBe('dark');
+      .toBe('default-dark');
 
     expect(mockLinkElement.href)
-      .toBe('assets/css/colors/dark.css');
+      .toBe('assets/css/colors/default-dark.css');
 
   });
 
@@ -128,7 +128,7 @@ describe('SettingsService', () => {
     createService();
 
     expect(() => {
-      service.applyTheme('dark');
+      service.applyTheme('default-dark');
     }).not.toThrow();
 
   });
