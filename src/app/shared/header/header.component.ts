@@ -8,10 +8,20 @@ import { RouterLinkActive, RouterLink } from '@angular/router';
     styles: [],
     imports: [RouterLinkActive, RouterLink]
 })
+/**
+ * Component responsible for rendering the application's header.
+ * Provides navigation links and other header-related functionality.
+ */
 export class HeaderComponent implements OnInit {
 
+  /**
+   * Initializes the HeaderComponent.
+   */
   constructor() { }
 
+  /**
+   * Lifecycle hook that is called after data-bound properties are initialized.
+   */
   ngOnInit() {
   }
 

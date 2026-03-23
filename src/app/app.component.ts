@@ -9,10 +9,16 @@ import { SettingsService } from 'src/app/services/settings/settings.service';
     standalone: true,
     imports: [RouterOutlet]
 })
+/**
+ * Root component of the application.
+ * Provides the main entry point and initializes application-wide settings.
+ */
 export class AppComponent {
   title = 'AdminPro';
 
-  constructor(public settings: SettingsService ) {
-
-  }
+  /**
+   * Initializes the AppComponent with the provided settings service.
+   * @param settings Service for managing application settings.
+   */
+  constructor(public settings: SettingsService) {}
 }

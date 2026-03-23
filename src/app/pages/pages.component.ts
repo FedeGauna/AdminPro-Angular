@@ -6,6 +6,10 @@ import { RouterOutlet } from '@angular/router';
 
 declare function initPlugins();
 
+/**
+ * Main layout component for authenticated pages.
+ * Contains the header, sidebar, breadcrumbs, and router outlet for child pages.
+ */
 @Component({
     selector: 'app-pages',
     standalone: true,

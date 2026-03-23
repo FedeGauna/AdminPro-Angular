@@ -11,6 +11,10 @@ import { faFacebookF, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 
 declare function initPlugins();
 
+/**
+ * Component responsible for user login.
+ * Provides the login form and handles user authentication.
+ */
 @Component({
     selector: "app-login",
     templateUrl: "./login.component.html",
@@ -33,8 +37,17 @@ export class LoginComponent implements OnInit {
     },
   };
 
+  /**
+   * Initializes the LoginComponent with form builder and router services.
+   * @param formBuilder Service for creating and managing forms.
+   * @param router Service for navigation and routing.
+   */
   constructor(private formBuilder: FormBuilder, public router: Router) {}
 
+  /**
+   * Lifecycle hook that is called after data-bound properties are initialized.
+   * Initializes plugins required for the login page.
+   */
   ngOnInit() {
     initPlugins();
 

@@ -9,13 +9,24 @@ import { NgChartsModule } from "ng2-charts";
     styles: [],
     imports: [NgChartsModule]
 })
+/**
+ * Component responsible for rendering a doughnut chart.
+ * Displays data visualization using Chart.js.
+ */
 export class DoughnutChartComponent implements OnInit {
+  /**
+   * Labels for the doughnut chart.
+   */
   @Input() labels: string[] = [
     "Fruit Jam",
     "Cheese",
     "Dulce de leche and butter",
     "I don't eat toast",
   ];
+
+  /**
+   * Data for the doughnut chart.
+   */
   @Input() data: ChartData<"doughnut"> = {
     labels: this.labels,
     datasets: [
@@ -24,10 +35,29 @@ export class DoughnutChartComponent implements OnInit {
       },
     ],
   };
+
+  /**
+   * Type of the chart, defaulting to "doughnut".
+   */
   @Input() type: ChartType = "doughnut";
+
+  /**
+   * Legend text for the chart.
+   */
   @Input() legend: string = "At breakfast, toast is eaten with";
+
+  /**
+   * Configuration options for the chart.
+   */
   @Input() options: any;
 
+  /**
+   * Initializes the DoughnutChartComponent.
+   */
   constructor() {}
+
+  /**
+   * Lifecycle hook that is called after data-bound properties are initialized.
+   */
   ngOnInit() {}
 }

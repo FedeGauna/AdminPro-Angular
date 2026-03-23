@@ -1,10 +1,16 @@
 import { Injectable } from '@angular/core';
 
+/**
+ * Service responsible for managing the sidebar menu.
+ * Provides the structure and data for the sidebar navigation.
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class SidebarService {
-
+  /**
+   * Menu structure for the sidebar navigation.
+   */
   menu: any = [
     {
       title: 'Main',
@@ -19,5 +25,8 @@ export class SidebarService {
     }
   ];
 
+  /**
+   * Initializes the SidebarService.
+   */
   constructor() { }
 }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Component displaying the main application dashboard.
+ */
 @Component({
     selector: 'app-dashboard',
     standalone: true,
