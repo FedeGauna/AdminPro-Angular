@@ -1,13 +1,13 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { ChartData, ChartType } from "chart.js";
-import { NgChartsModule } from "ng2-charts";
+import { BaseChartDirective } from "ng2-charts";
 
 @Component({
     selector: "app-doughnut-chart",
     standalone: true,
     templateUrl: "./doughnutChart.component.html",
     styles: [],
-    imports: [NgChartsModule]
+    imports: [BaseChartDirective]
 })
 /**
  * Component responsible for rendering a doughnut chart.

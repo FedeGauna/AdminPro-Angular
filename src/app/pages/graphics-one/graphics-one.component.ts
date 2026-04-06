@@ -38,7 +38,7 @@ export class GraphicsOneComponent {
         datasets: [
           {
             data: [24, 30, 46],
-            backgroundcolor: ["#F8C7CC", "#81A684"],
+            backgroundColor: ["#F8C7CC", "#81A684", "#F2E2B8"],
             borderWidth: 0.5,
             borderColor: 'black', 
             cutout: '50%',
