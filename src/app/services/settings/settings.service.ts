@@ -12,8 +12,8 @@ const DEFAULT_SETTINGS: Readonly<Settings> = Object.freeze({
 });
 
 /**
- * Service responsible for managing application settings.
- * Handles theme selection and persistence of settings.
+ * Service for managing application settings.
+ * Handles theme selection and persists settings to localStorage.
  */
 @Injectable({
   providedIn: 'root'
@@ -21,14 +21,24 @@ const DEFAULT_SETTINGS: Readonly<Settings> = Object.freeze({
 export class SettingsService {
   settings: Settings = { ...DEFAULT_SETTINGS };
 
+  /**
+   * Initializes the SettingsService.
+   * @param _document The document object for DOM manipulation.
+   */
   constructor(@Inject(DOCUMENT) private _document: Document) {
     this.loadSettings();
   }
 
+  /**
+   * Persists current settings to localStorage.
+   */
   saveSettings(): void {
     localStorage.setItem('settings', JSON.stringify(this.settings));
   }
 
+  /**
+   * Loads settings from localStorage and applies the saved theme.
+   */
   loadSettings(): void {
     const stored = localStorage.getItem('settings');
 
@@ -49,6 +59,10 @@ export class SettingsService {
     }
   }
 
+  /**
+   * Applies the specified theme by updating the document's stylesheet link.
+   * @param theme The name of the theme to apply.
+   */
   applyTheme(theme: string): void {
     const sanitized = this.sanitizeTheme(theme);
     const url = `assets/css/colors/${sanitized}.css`;

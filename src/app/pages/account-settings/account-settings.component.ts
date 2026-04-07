@@ -1,25 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { SettingsService } from 'src/app/services/settings/settings.service';
 
-/**
- * Component for managing user account settings.
- * Provides UI for selecting and applying application themes.
- */
 @Component({
     selector: 'app-account-settings',
     standalone: true,
     templateUrl: './account-settings.component.html',
     styles: []
 })
+/**
+ * Manages user account theme settings.
+ */
 export class AccountSettingsComponent implements OnInit {
 
-// tslint:disable-next-line: variable-name
   /**
-   * Initializes the AccountSettingsComponent with the settings service.
+   * Initializes the AccountSettingsComponent.
    * @param _settings Service for managing application settings.
    */
   constructor( public _settings: SettingsService ) { }
 
+  /**
+   * Lifecycle hook called after component initialization.
+   */
   ngOnInit() {
     this.placeCheck();
   }
@@ -50,7 +51,7 @@ export class AccountSettingsComponent implements OnInit {
   }
 
   /**
-   * Marks the currently active theme selector in the UI based on saved settings.
+   * Marks the currently active theme selector based on saved settings.
    */
   placeCheck( ) {
 

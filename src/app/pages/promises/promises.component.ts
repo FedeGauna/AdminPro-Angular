@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 
-/**
- * Component demonstrating JavaScript promises.
- * Executes a promise that resolves after a countdown.
- */
 @Component({
     selector: 'app-promises',
     standalone: true,
     templateUrl: './promises.component.html',
     styles: []
 })
+/**
+ * Demonstrates JavaScript promises.
+ */
 export class PromisesComponent implements OnInit {
 
+  /**
+   * Initializes the PromisesComponent and executes the countdown promise.
+   */
   constructor() {
      this.countThree().then(
       message => console.log('Finished..', message)
@@ -19,12 +21,15 @@ export class PromisesComponent implements OnInit {
      .catch( error => console.error('Error in the promise. ', error));
    }
 
+  /**
+   * Lifecycle hook called after component initialization.
+   */
   ngOnInit() {
   }
 
   /**
-   * Creates a promise that resolves to true after a 3-second countdown.
-   * @returns A promise that resolves after counting to 3.
+   * Creates a promise that resolves after a 3-second countdown.
+   * @returns A promise that resolves to true after 3 seconds.
    */
   countThree(): Promise<boolean> {
    return new Promise((resolve, reject) => {

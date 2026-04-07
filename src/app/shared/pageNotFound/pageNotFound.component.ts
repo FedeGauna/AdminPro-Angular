@@ -7,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
     styles: []
 })
 /**
- * Component responsible for displaying a "Page Not Found" message.
- * Used when the user navigates to an undefined route.
+ * Displays a 404 error for undefined routes.
  */
 export class PageNotFoundComponent implements OnInit {
 
@@ -18,7 +17,7 @@ export class PageNotFoundComponent implements OnInit {
   constructor() { }
 
   /**
-   * Lifecycle hook that is called after data-bound properties are initialized.
+   * Lifecycle hook called after component initialization.
    */
   ngOnInit() {
   }

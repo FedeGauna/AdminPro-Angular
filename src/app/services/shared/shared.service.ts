@@ -1,16 +1,10 @@
 import { Injectable } from '@angular/core';
 
 /**
- * Service responsible for providing shared functionality across the application.
- * Acts as a utility service for common operations.
+ * Service for providing shared utilities across the application.
  */
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
-
-  /**
-   * Initializes the SharedService.
-   */
-  constructor() { }
 }

@@ -6,10 +6,6 @@ import { RouterOutlet } from '@angular/router';
 
 declare function initPlugins();
 
-/**
- * Main layout component for authenticated pages.
- * Contains the header, sidebar, breadcrumbs, and router outlet for child pages.
- */
 @Component({
     selector: 'app-pages',
     standalone: true,
@@ -17,10 +13,19 @@ declare function initPlugins();
     styles: [],
     imports: [HeaderComponent, SidebarComponent, BreadcrumbsComponent, RouterOutlet]
 })
+/**
+ * Main layout for authenticated pages.
+ */
 export class PagesComponent implements OnInit {
 
+  /**
+   * Initializes the PagesComponent.
+   */
   constructor() { }
 
+  /**
+   * Lifecycle hook called after component initialization.
+   */
   ngOnInit() {
     initPlugins();
   }

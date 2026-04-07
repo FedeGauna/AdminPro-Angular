@@ -11,19 +11,18 @@ import { CommonModule } from '@angular/common';
     imports: [RouterLinkActive, RouterLink, CommonModule]
 })
 /**
- * Component responsible for rendering the application's sidebar.
- * Provides navigation links and interacts with the SidebarService.
+ * Renders the application sidebar.
  */
 export class SidebarComponent implements OnInit {
 
   /**
-   * Initializes the SidebarComponent with the provided sidebar service.
-   * @param sidebar Service for managing sidebar-related functionality.
+   * Initializes the SidebarComponent.
+   * @param sidebar Service for sidebar navigation.
    */
   constructor( public sidebar: SidebarService) { }
 
   /**
-   * Lifecycle hook that is called after data-bound properties are initialized.
+   * Lifecycle hook called after component initialization.
    */
   ngOnInit() {
   }

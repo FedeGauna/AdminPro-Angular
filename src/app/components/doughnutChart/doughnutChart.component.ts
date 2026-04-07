@@ -10,12 +10,11 @@ import { BaseChartDirective } from "ng2-charts";
     imports: [BaseChartDirective]
 })
 /**
- * Component responsible for rendering a doughnut chart.
- * Displays data visualization using Chart.js.
+ * Renders a doughnut chart using Chart.js.
  */
 export class DoughnutChartComponent implements OnInit {
   /**
-   * Labels for the doughnut chart.
+   * Gets or sets the chart labels.
    */
   @Input() labels: string[] = [
     "Fruit Jam",
@@ -25,7 +24,7 @@ export class DoughnutChartComponent implements OnInit {
   ];
 
   /**
-   * Data for the doughnut chart.
+   * Sets the chart data.
    */
   @Input() data: ChartData<"doughnut"> = {
     labels: this.labels,
@@ -37,17 +36,17 @@ export class DoughnutChartComponent implements OnInit {
   };
 
   /**
-   * Type of the chart, defaulting to "doughnut".
+   * Sets the chart type.
    */
   @Input() type: ChartType = "doughnut";
 
   /**
-   * Legend text for the chart.
+   * Sets the chart legend.
    */
   @Input() legend: string = "At breakfast, toast is eaten with";
 
   /**
-   * Configuration options for the chart.
+   * Sets the chart configuration options.
    */
   @Input() options: any;
 
@@ -57,7 +56,7 @@ export class DoughnutChartComponent implements OnInit {
   constructor() {}
 
   /**
-   * Lifecycle hook that is called after data-bound properties are initialized.
+   * Lifecycle hook called after component initialization.
    */
   ngOnInit() {}
 }

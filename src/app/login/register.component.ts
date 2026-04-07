@@ -10,8 +10,7 @@ import { RouterLink } from '@angular/router';
     standalone: true
 })
 /**
- * Component responsible for user registration.
- * Provides the registration form and handles user input.
+ * Handles user registration.
  */
 export class RegisterComponent implements OnInit {
 
@@ -21,7 +20,7 @@ export class RegisterComponent implements OnInit {
   constructor() { }
 
   /**
-   * Lifecycle hook that is called after data-bound properties are initialized.
+   * Lifecycle hook called after component initialization.
    */
   ngOnInit() {
   }

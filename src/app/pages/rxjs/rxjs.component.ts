@@ -2,21 +2,22 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscriber, Subscription } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
-/**
- * Component demonstrating RxJS observables and operators.
- * Subscribes to a custom observable and displays even numbers over time.
- */
 @Component({
     selector: 'app-rxjs',
     standalone: true,
     templateUrl: './rxjs.component.html',
     styles: []
 })
+/**
+ * Demonstrates RxJS observables and operators.
+ */
 export class RxjsComponent implements OnInit, OnDestroy {
 
   subscription: Subscription;
 
-
+  /**
+   * Initializes the RxjsComponent and subscribes to the observable.
+   */
   constructor() {
 
     this.subscription = this.returnObservable()
@@ -28,16 +29,22 @@ export class RxjsComponent implements OnInit, OnDestroy {
 
   }
 
+  /**
+   * Lifecycle hook called after component initialization.
+   */
   ngOnInit() {
   }
 
+  /**
+   * Lifecycle hook called before component destruction.
+   * Unsubscribes from the observable.
+   */
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
   /**
-   * Creates and returns an observable that emits incrementing numbers every second.
-   * Filters to emit only odd numbers.
+   * Creates an observable that emits incrementing numbers and filters for odd values.
    * @returns An observable emitting odd numbers at 1-second intervals.
    */
   returnObservable(): Observable<any> {
@@ -59,10 +66,8 @@ export class RxjsComponent implements OnInit, OnDestroy {
       map( resp => resp.value),
       filter(( value, index ) => {
         if ( (value % 2) === 1) {
-          // even
           return true;
         } else {
-          // odd
           return false;
         }
       })

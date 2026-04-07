@@ -12,8 +12,7 @@ import { faFacebookF, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 declare function initPlugins();
 
 /**
- * Component responsible for user login.
- * Provides the login form and handles user authentication.
+ * Handles user authentication.
  */
 @Component({
     selector: "app-login",
@@ -38,15 +37,14 @@ export class LoginComponent implements OnInit {
   };
 
   /**
-   * Initializes the LoginComponent with form builder and router services.
-   * @param formBuilder Service for creating and managing forms.
-   * @param router Service for navigation and routing.
+   * Initializes the LoginComponent.
+   * @param formBuilder Service for creating reactive forms.
+   * @param router Service for navigation.
    */
   constructor(private formBuilder: FormBuilder, public router: Router) {}
 
   /**
-   * Lifecycle hook that is called after data-bound properties are initialized.
-   * Initializes plugins required for the login page.
+   * Lifecycle hook called after component initialization.
    */
   ngOnInit() {
     initPlugins();
@@ -65,11 +63,19 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get("password");
   }
 
+  /**
+   * Retrieves validation errors for the specified control.
+   * @param controlName The name of the form control.
+   * @returns An array of error messages.
+   */
   getErrors(controlName: string): string[] {
     const control = this.loginForm.get(controlName);
     return control && control.errors ? Object.values(control.errors) : [];
   }
 
+  /**
+   * Validates user credentials and navigates to dashboard on success.
+   */
   checkCredentials() {
     this.loginForm.markAllAsTouched();
     if (this.loginForm.valid) {
@@ -77,6 +83,9 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  /**
+   * Toggles password visibility.
+   */
   togglePassword() {
     this.showPassword = !this.showPassword;
     this.passwordSettings.inputType = this.showPassword ? "text" : "password";

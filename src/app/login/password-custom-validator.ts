@@ -1,9 +1,9 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
 
 /**
- * Validates that a password meets security requirements.
+ * Validates password against security requirements.
  * Checks for uppercase, lowercase, number, special character, and minimum length.
- * @returns A validator function that returns validation errors or null if valid.
+ * @returns A validator function.
  */
 export function passwordCustomValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {

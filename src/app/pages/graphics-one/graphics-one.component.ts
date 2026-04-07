@@ -3,10 +3,6 @@ import { ChartType, ChartData } from "chart.js";
 import { KeyValuePipe, CommonModule } from "@angular/common";
 import { DoughnutChartComponent } from "../../components/doughnutChart/doughnutChart.component";
 
-/**
- * Component displaying multiple doughnut charts for data visualization.
- * Renders various survey results using doughnut charts.
- */
 @Component({
     selector: "app-graphics-one",
     standalone: true,
@@ -14,8 +10,10 @@ import { DoughnutChartComponent } from "../../components/doughnutChart/doughnutC
     styles: [],
     imports: [CommonModule, DoughnutChartComponent, KeyValuePipe]
 })
+/**
+ * Displays multiple doughnut charts for data visualization.
+ */
 export class GraphicsOneComponent {
-  // Doughnut
   public doughnutChartLabels: string[] = [
     "Download Sales",
     "In-Store Sales",
