@@ -3,6 +3,9 @@ import { SidebarService } from 'src/app/services/service.index';
 import { RouterLinkActive, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
+/**
+ * Renders the application sidebar.
+ */
 @Component({
     selector: 'app-sidebar',
     standalone: true,
@@ -10,9 +13,6 @@ import { CommonModule } from '@angular/common';
     styles: [],
     imports: [RouterLinkActive, RouterLink, CommonModule]
 })
-/**
- * Renders the application sidebar.
- */
 export class SidebarComponent implements OnInit {
 
   /**

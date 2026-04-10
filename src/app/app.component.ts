@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SettingsService } from 'src/app/services/settings/settings.service';
 
+/**
+ * Root component of the application.
+ */
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -9,10 +12,8 @@ import { SettingsService } from 'src/app/services/settings/settings.service';
     standalone: true,
     imports: [RouterOutlet]
 })
-/**
- * Root component of the application.
- */
 export class AppComponent {
+  /** Application title displayed in the browser tab. */
   title = 'AdminPro';
 
   /**

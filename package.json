@@ -13,6 +13,9 @@
     "e2e": "playwright test",
     "e2e:headed": "playwright test --headed",
     "e2e:ui": "playwright test --ui",
+    "docs": "compodoc -p tsconfig.doc.json -c compodoc.json",
+    "docs:serve": "compodoc -p tsconfig.doc.json -c compodoc.json -s",
+    "docs:build": "compodoc -p tsconfig.doc.json -c compodoc.json",
     "app": "ng serve -o"
   },
   "private": true,
@@ -44,6 +47,7 @@
     "@angular/cli": "20.3.22",
     "@angular/compiler-cli": "20.3.18",
     "@angular/language-service": "20.3.18",
+    "@compodoc/compodoc": "^1.2.1",
     "@playwright/test": "1.57.0",
     "@types/jasmine": "~4.3.0",
     "@types/jest": "^30.0.0",
@@ -58,6 +62,8 @@
     "typescript": "~5.8.3"
   },
   "overrides": {
-    "vite": "^7.3.2"
+    "vite": "^7.3.2",
+    "ajv": "^8.17.1",
+    "picomatch": "^4.0.4"
   }
 }

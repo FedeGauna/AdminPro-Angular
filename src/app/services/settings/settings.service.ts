@@ -1,11 +1,15 @@
 import { Injectable, Inject, DOCUMENT } from '@angular/core';
 import { AVAILABLE_THEMES, ThemeName } from './themes.config';
 
+/** Application settings configuration. */
 interface Settings {
+  /** URL path to the theme CSS file. */
   themeUrl: string;
+  /** Name of the active theme. */
   theme: ThemeName;
 }
 
+/** Default settings values. */
 const DEFAULT_SETTINGS: Readonly<Settings> = Object.freeze({
   themeUrl: 'assets/css/colors/default.css',
   theme: 'default'
@@ -19,6 +23,7 @@ const DEFAULT_SETTINGS: Readonly<Settings> = Object.freeze({
   providedIn: 'root'
 })
 export class SettingsService {
+  /** Current application settings. */
   settings: Settings = { ...DEFAULT_SETTINGS };
 
   /**
@@ -77,6 +82,7 @@ export class SettingsService {
     this.saveSettings();
   }
 
+  /** Validates and normalizes the theme name. */
   private sanitizeTheme(theme: string): ThemeName {
     const normalized = theme.toLowerCase().trim();
 
@@ -87,6 +93,7 @@ export class SettingsService {
     return 'default';
   }
 
+  /** Validates parsed settings data from localStorage. */
   private validateSettings(data: unknown): Settings | null {
     if (data === null || typeof data !== 'object') {
       return null;
@@ -105,6 +112,7 @@ export class SettingsService {
     };
   }
 
+  /** Checks if the data object has required properties. */
   private hasValidStructure(data: Record<string, unknown>): boolean {
     return (
       typeof data.themeUrl === 'string' &&
@@ -112,14 +120,17 @@ export class SettingsService {
     );
   }
 
+  /** Validates that themeUrl points to allowed assets path. */
   private hasValidThemeUrl(data: Record<string, unknown>): boolean {
     return (data.themeUrl as string).startsWith('assets/css/colors/');
   }
 
+  /** Validates that theme name exists in available themes. */
   private hasValidTheme(data: Record<string, unknown>): boolean {
     return AVAILABLE_THEMES.includes(data.theme as string as ThemeName);
   }
 
+  /** Detects prototype pollution attack attempts. */
   private isPrototypePollutionAttempt(data: Record<string, unknown>): boolean {
     return (
       Object.prototype.hasOwnProperty.call(data, '__proto__') ||

@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+/**
+ * Provides a numeric up/down control for progress values.
+ */
 @Component({
     selector: 'app-numericUpDown',
     standalone: true,
@@ -8,11 +11,9 @@ import { FormsModule } from '@angular/forms';
     styles: [],
     imports: [FormsModule]
 })
-/**
- * Provides a numeric up/down control for progress values.
- */
 export class NumericUpDownComponent implements OnInit {
 
+  /** Reference to the progress input element. */
   @ViewChild('txtProgress') txtProgress: ElementRef;
 
   /**

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLinkActive, RouterLink } from '@angular/router';
 
+/**
+ * Renders the application header.
+ */
 @Component({
     selector: 'app-header',
     standalone: true,
@@ -8,9 +11,6 @@ import { RouterLinkActive, RouterLink } from '@angular/router';
     styles: [],
     imports: [RouterLinkActive, RouterLink]
 })
-/**
- * Renders the application header.
- */
 export class HeaderComponent implements OnInit {
 
   /**

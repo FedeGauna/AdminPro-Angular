@@ -4,8 +4,14 @@ import { SidebarComponent } from '../shared/sidebar/sidebar.component';
 import { BreadcrumbsComponent } from '../shared/breadcrumbs/breadcrumbs.component';
 import { RouterOutlet } from '@angular/router';
 
+/**
+ * @ignore
+ */
 declare function initPlugins();
 
+/**
+ * Main layout for authenticated pages.
+ */
 @Component({
     selector: 'app-pages',
     standalone: true,
@@ -13,9 +19,6 @@ declare function initPlugins();
     styles: [],
     imports: [HeaderComponent, SidebarComponent, BreadcrumbsComponent, RouterOutlet]
 })
-/**
- * Main layout for authenticated pages.
- */
 export class PagesComponent implements OnInit {
 
   /**

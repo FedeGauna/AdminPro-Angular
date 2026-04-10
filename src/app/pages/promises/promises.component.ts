@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Demonstrates JavaScript promises.
+ */
 @Component({
     selector: 'app-promises',
     standalone: true,
     templateUrl: './promises.component.html',
     styles: []
 })
-/**
- * Demonstrates JavaScript promises.
- */
 export class PromisesComponent implements OnInit {
 
   /**

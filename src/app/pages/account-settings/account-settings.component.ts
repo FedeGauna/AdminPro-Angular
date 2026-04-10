@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { SettingsService } from 'src/app/services/settings/settings.service';
 
+/**
+ * Manages user account theme settings.
+ */
 @Component({
     selector: 'app-account-settings',
     standalone: true,
     templateUrl: './account-settings.component.html',
     styles: []
 })
-/**
- * Manages user account theme settings.
- */
 export class AccountSettingsComponent implements OnInit {
 
   /**

@@ -5,6 +5,7 @@ import { PageNotFoundComponent } from './shared/pageNotFound/pageNotFound.compon
 import { RegisterComponent } from './login/register.component';
 import { pagesRoutes } from './pages/pages.routes'; 
 
+/** Main application routing configuration. */
 export const appRoutes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },

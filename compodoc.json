@@ -1,0 +1,15 @@
+{
+  "entryPoint": "src",
+  "output": "docs",
+  "name": "AdminPro - Federico Gauna",
+  "theme": "default",
+  "disableSourceCode": true,
+  "disableTemplateTab": true,
+  "disableDomTree": true,
+  "disableStyleTab": true,
+  "disablePrivate": true,
+  "disableProtected": true,
+  "customLogo": "./src/assets/images/logo-light-text.png",
+  "customFavicon": "./src/favicon.ico", 
+  "assetsFolder": "./src/assets" 
+}

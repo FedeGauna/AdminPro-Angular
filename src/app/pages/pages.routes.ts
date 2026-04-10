@@ -8,6 +8,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromisesComponent } from './promises/promises.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 
+/** Pages module routing configuration. */
 export const pagesRoutes: Routes = [
     {
         path: '', component: PagesComponent,

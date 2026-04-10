@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Displays the main application dashboard.
+ */
 @Component({
     selector: 'app-dashboard',
     standalone: true,
     templateUrl: './dashboard.component.html',
     styles: []
 })
-/**
- * Displays the main application dashboard.
- */
 export class DashboardComponent implements OnInit {
 
   /**

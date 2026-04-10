@@ -68,7 +68,41 @@ ng test
 ng e2e
 ```
 
-Optional: VS Code
+Documentation (Compodoc)
+----------------------
+Generates API documentation from TypeScript and JSDoc comments.
+
+Purpose:
+- Documents components, services, interfaces, classes, and functions
+- Provides coverage reports showing documented vs undocumented code
+- Generates navigable HTML documentation accessible via browser
+
+JSDoc Requirements:
+
+Compodoc reads JSDoc comments (/** */) from TypeScript code. 
+
+Commands:
+
+Build documentation (outputs to /docs folder):
+
+```bash
+npm run docs:build
+```
+
+After generating the docs, open `docs/index.html` in the browser to view the documentation.
+
+Serve documentation (check terminal output for URL):
+
+```bash
+npm run docs:serve
+```
+
+Coverage:
+
+Run `npm run docs:serve` and navigate to the Documentation coverage section in the documentation page.
+Code with 100% coverage means all public API members have JSDoc comments.
+
+>Optional: VS Code
 - Install from https://code.visualstudio.com/
 - Windows (winget): `winget install --id Microsoft.VisualStudioCode`
 - macOS (Homebrew): `brew install --cask visual-studio-code`

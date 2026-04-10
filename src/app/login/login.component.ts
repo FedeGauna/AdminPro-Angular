@@ -9,6 +9,7 @@ import { faFacebookF, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 
 
 
+/** Initializes third-party plugins. */
 declare function initPlugins();
 
 /**
@@ -23,11 +24,16 @@ declare function initPlugins();
     
 })
 export class LoginComponent implements OnInit {
+  /** Login form group with user and password controls. */
   loginForm: FormGroup;
+  /** Toggles password visibility. */
   showPassword: boolean = false;
+  /** Facebook icon for social login. */
   faFacebook = faFacebookF;
+  /** Google icon for social login. */
   faGoogle = faGooglePlusG;
 
+  /** Configuration for password input display. */
   passwordSettings: PasswordSettings = {
     inputType: "password",
     iconClass: {
@@ -55,10 +61,12 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  /** Gets the user form control. */
   get user() {
     return this.loginForm.get("user");
   }
 
+  /** Gets the password form control. */
   get password() {
     return this.loginForm.get("password");
   }

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
+/**
+ * Handles user registration.
+ */
 @Component({
     selector: 'app-register',
     templateUrl: './register.component.html',
@@ -9,9 +12,6 @@ import { RouterLink } from '@angular/router';
     imports: [FormsModule, RouterLink],
     standalone: true
 })
-/**
- * Handles user registration.
- */
 export class RegisterComponent implements OnInit {
 
   /**

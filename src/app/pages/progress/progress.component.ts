@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NumericUpDownComponent } from '../../components/numericUpDown/numericUpDown.component';
 
+/**
+ * Displays interactive progress bars.
+ */
 @Component({
     selector: 'app-progress',
     standalone: true,
@@ -8,12 +11,11 @@ import { NumericUpDownComponent } from '../../components/numericUpDown/numericUp
     styles: [],
     imports: [NumericUpDownComponent]
 })
-/**
- * Displays interactive progress bars.
- */
 export class ProgressComponent implements OnInit {
 
+  /** Progress value for the blue progress bar (0-100). */
   progressBlue: number = 20;
+  /** Progress value for the green progress bar (0-100). */
   progressGreen: number = 30;
 
   /**

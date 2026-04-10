@@ -3,6 +3,9 @@ import { ChartType, ChartData } from "chart.js";
 import { KeyValuePipe, CommonModule } from "@angular/common";
 import { DoughnutChartComponent } from "../../components/doughnutChart/doughnutChart.component";
 
+/**
+ * Displays multiple doughnut charts for data visualization.
+ */
 @Component({
     selector: "app-graphics-one",
     standalone: true,
@@ -10,15 +13,14 @@ import { DoughnutChartComponent } from "../../components/doughnutChart/doughnutC
     styles: [],
     imports: [CommonModule, DoughnutChartComponent, KeyValuePipe]
 })
-/**
- * Displays multiple doughnut charts for data visualization.
- */
 export class GraphicsOneComponent {
+  /** Labels for the first doughnut chart. */
   public doughnutChartLabels: string[] = [
     "Download Sales",
     "In-Store Sales",
     "Mail-Order Sales",
   ];
+  /** Data configuration for the first doughnut chart. */
   public doughnutChartData: ChartData<"doughnut"> = {
     labels: this.doughnutChartLabels,
     datasets: [
@@ -27,8 +29,10 @@ export class GraphicsOneComponent {
       },
     ],
   };
+  /** Chart type identifier. */
   public doughnutChartType: ChartType = "doughnut";
 
+  /** Collection of additional charts to display. */
   public charts: any = {
     chart1: {
       data: {

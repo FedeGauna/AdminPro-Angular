@@ -2,6 +2,9 @@ import { Component, OnInit, Input } from "@angular/core";
 import { ChartData, ChartType } from "chart.js";
 import { BaseChartDirective } from "ng2-charts";
 
+/**
+ * Renders a doughnut chart using Chart.js.
+ */
 @Component({
     selector: "app-doughnut-chart",
     standalone: true,
@@ -9,9 +12,6 @@ import { BaseChartDirective } from "ng2-charts";
     styles: [],
     imports: [BaseChartDirective]
 })
-/**
- * Renders a doughnut chart using Chart.js.
- */
 export class DoughnutChartComponent implements OnInit {
   /**
    * Gets or sets the chart labels.

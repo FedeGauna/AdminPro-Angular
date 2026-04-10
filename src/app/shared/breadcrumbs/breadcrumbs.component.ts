@@ -3,17 +3,18 @@ import { Router, ActivationEnd } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 import { Title, Meta, MetaDefinition } from '@angular/platform-browser';
 
+/**
+ * Displays breadcrumbs and updates page metadata.
+ */
 @Component({
     selector: 'app-breadcrumbs',
     standalone: true,
     templateUrl: './breadcrumbs.component.html',
     styles: []
 })
-/**
- * Displays breadcrumbs and updates page metadata.
- */
 export class BreadcrumbsComponent implements OnInit {
 
+  /** Current page title extracted from route data. */
   _title: string;
 
   /**

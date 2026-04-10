@@ -2,17 +2,18 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscriber, Subscription } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
+/**
+ * Demonstrates RxJS observables and operators.
+ */
 @Component({
     selector: 'app-rxjs',
     standalone: true,
     templateUrl: './rxjs.component.html',
     styles: []
 })
-/**
- * Demonstrates RxJS observables and operators.
- */
 export class RxjsComponent implements OnInit, OnDestroy {
 
+  /** Subscription to the observable for cleanup on destroy. */
   subscription: Subscription;
 
   /**
