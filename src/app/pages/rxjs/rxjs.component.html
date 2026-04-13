@@ -1,3 +1,51 @@
-<p>
-  rxjs works!
-</p>
+<div class="fractal-container">
+  <div class="fractal-layout">
+    <aside class="fractal-info">
+      <div class="info-header">
+        <h2 class="fractal-title">{{ fractalDescription.name }}</h2>
+      </div>
+      
+      <div class="info-section">
+        <p class="fractal-summary">{{ fractalDescription.summary }}</p>
+      </div>
+      
+      <div class="info-section">
+        <h3 class="info-label">Author</h3>
+        <p class="info-value">{{ fractalDescription.author }}</p>
+      </div>
+      
+      <div class="info-section">
+        <h3 class="info-label">Lifespan</h3>
+        <p class="info-value">{{ fractalDescription.authorBorn }} - {{ fractalDescription.authorDied }}</p>
+      </div>
+      
+      <div class="info-section">
+        <h3 class="info-label">Year Discovered</h3>
+        <p class="info-value">{{ fractalDescription.yearDiscovered }}</p>
+      </div>
+      
+      <div class="info-section">
+        <h3 class="info-label">Characteristic</h3>
+        <p class="info-value">{{ fractalDescription.characteristic }}</p>
+      </div>
+    </aside>
+    
+    <div class="fractal-main">
+      <div class="status-bar">
+        <span class="mode-indicator" [class.interactive]="isInteractiveMode">
+          {{ isInteractiveMode ? 'Interactive Mode' : 'Waiting for interaction' }}
+        </span>
+      </div>
+      
+      <canvas #canvasRef 
+              width="600" 
+              height="500"
+              (mousemove)="onMouseMove($event)"
+              (mouseenter)="onMouseEnter()"
+              (mouseleave)="onMouseLeave()">
+      </canvas>
+      
+      <p class="instruction">Move your mouse over the canvas to interact with the fractal</p>
+    </div>
+  </div>
+</div>

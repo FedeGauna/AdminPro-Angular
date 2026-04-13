@@ -1,0 +1,189 @@
+.fractal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f4f6f9;
+  min-height: calc(100vh - 100px);
+}
+
+.fractal-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.fractal-info {
+  width: 320px;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 4px;
+  border: 1px solid rgba(120, 130, 140, 0.13);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info-header {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+}
+
+.fractal-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #455a64;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.info-section {
+  margin-bottom: 1rem;
+}
+
+.info-section:last-child {
+  margin-bottom: 0;
+}
+
+.info-label {
+  margin: 0 0 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #67757c;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.info-value {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #455a64;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.fractal-summary {
+  margin: 0 0 1rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: #67757c;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.fractal-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.status-bar {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mode-indicator {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #67757c;
+  border: 1px solid rgba(120, 130, 140, 0.13);
+  font-weight: 400;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.mode-indicator.interactive {
+  background-color: #ffffff;
+  color: #398bf7;
+  border: 1px solid #398bf7;
+  font-weight: 500;
+}
+
+canvas {
+  width: 600px;
+  height: 500px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: crosshair;
+  transition: box-shadow 0.3s ease;
+  background: #0a0a0a;
+  border: 1px solid rgba(120, 130, 140, 0.13);
+}
+
+canvas:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.instruction {
+  color: #67757c;
+  margin-top: 1rem;
+  font-size: 0.8125rem;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@media (max-width: 1023px) {
+  .fractal-layout {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .fractal-info {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  canvas {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    aspect-ratio: 6 / 5;
+  }
+}
+
+@media (max-width: 767px) {
+  .fractal-container {
+    padding: 1rem;
+  }
+
+  .fractal-info {
+    padding: 1rem;
+  }
+
+  canvas {
+    max-width: 350px;
+  }
+
+  .status-bar {
+    font-size: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .fractal-title {
+    font-size: 1rem;
+  }
+
+  .info-value {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  canvas {
+    max-width: 280px;
+  }
+
+  .mode-indicator {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .fractal-info {
+    padding: 0.75rem;
+  }
+}
