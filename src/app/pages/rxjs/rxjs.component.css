@@ -30,6 +30,45 @@
   border-bottom: 1px solid rgba(120, 130, 140, 0.13);
 }
 
+.fractal-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  margin-bottom: 0.75rem;
+}
+
+.selector-label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #67757c;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.selector-dropdown {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #455a64;
+  background-color: #f4f6f9;
+  border: 1px solid rgba(120, 130, 140, 0.13);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.selector-dropdown:hover {
+  border-color: #398bf7;
+}
+
+.selector-dropdown:focus {
+  border-color: #398bf7;
+  box-shadow: 0 0 0 2px rgba(57, 139, 247, 0.1);
+}
+
 .fractal-title {
   margin: 0;
   font-size: 1.25rem;

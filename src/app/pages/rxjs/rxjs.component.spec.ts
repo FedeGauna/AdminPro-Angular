@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { RxjsComponent } from './rxjs.component';
 import { AbstractFractal } from './fractals/fractal-base';
+import { FRACTAL_OPTIONS, FractalOption } from './models/fractal-registry';
 
 // Mock rxjs module
 jest.mock('rxjs', () => ({
@@ -76,10 +78,7 @@ describe('RxjsComponent', () => {
     } as unknown as HTMLCanvasElement;
 
     await TestBed.configureTestingModule({
-      imports: [RxjsComponent],
-      providers: [
-        { provide: AbstractFractal, useClass: MockFractal }
-      ]
+      imports: [RxjsComponent, FormsModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(RxjsComponent);
@@ -101,6 +100,17 @@ describe('RxjsComponent', () => {
 
   it('should initialize isInteractiveMode as false', () => {
     expect(component.isInteractiveMode).toBe(false);
+  });
+
+  it('should initialize selectedFractalId as koch-snowflake', () => {
+    expect(component.selectedFractalId).toBe('koch-snowflake');
+  });
+
+  it('should have fractalOptions populated from registry', () => {
+    expect(component.fractalOptions).toBeDefined();
+    expect(component.fractalOptions.length).toBe(FRACTAL_OPTIONS.length);
+    expect(component.fractalOptions[0].id).toBe('koch-snowflake');
+    expect(component.fractalOptions[1].id).toBe('pythagoras-tree');
   });
 
   it('should set interactive mode on mouse enter', () => {
@@ -173,5 +183,27 @@ describe('RxjsComponent', () => {
 
     expect(nextSpy).toHaveBeenCalled();
     expect(completeSpy).toHaveBeenCalled();
+  });
+
+  it('should change fractal when onFractalChange is called', () => {
+    const initialFractalId = component.fractal.id;
+    component.onFractalChange('pythagoras-tree');
+    
+    expect(component.selectedFractalId).toBe('pythagoras-tree');
+    expect(component.fractal.id).not.toBe(initialFractalId);
+  });
+
+  it('should initialize canvas when fractal changes', () => {
+    const initCanvasSpy = jest.spyOn(component as any, 'initCanvas');
+    component.onFractalChange('pythagoras-tree');
+    
+    expect(initCanvasSpy).toHaveBeenCalled();
+  });
+
+  it('should fallback to default fractal for unknown id', () => {
+    component.onFractalChange('unknown-fractal');
+    
+    expect(component.selectedFractalId).toBe('unknown-fractal');
+    expect(component.fractal).toBeDefined();
   });
 });

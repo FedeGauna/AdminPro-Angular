@@ -1,12 +1,13 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { fromEvent, Subscription, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { animationFrames } from 'rxjs';
 
 import { FractalParams } from './models/fractal.interface';
 import { AbstractFractal } from './fractals/fractal-base';
-import { PythagorasTreeFractal } from './fractals/pythagoras-tree.fractal';
+import { FRACTAL_OPTIONS, FractalOption, getDefaultFractalOption } from './models/fractal-registry';
 
 /**
  * RxJS Component demonstrating reactive programming with interactive fractal visualization.
@@ -14,12 +15,9 @@ import { PythagorasTreeFractal } from './fractals/pythagoras-tree.fractal';
 @Component({
   selector: 'app-rxjs',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './rxjs.component.html',
-  styleUrls: ['./rxjs.component.css'],
-  providers: [
-    { provide: AbstractFractal, useClass: PythagorasTreeFractal }
-  ]
+  styleUrls: ['./rxjs.component.css']
 })
 export class RxjsComponent implements OnInit, AfterViewInit, OnDestroy {
 
@@ -74,10 +72,28 @@ export class RxjsComponent implements OnInit, AfterViewInit, OnDestroy {
   private readonly CANVAS_HEIGHT: number = 500;
 
   /**
-   * Creates an instance of RxjsComponent.
-   * @param fractal Fractal renderer injected via dependency injection.
+   * Current fractal renderer instance.
    */
-  constructor(private fractal: AbstractFractal) {}
+  fractal: AbstractFractal;
+
+  /**
+   * Available fractal options for the selector.
+   */
+  fractalOptions: FractalOption[] = FRACTAL_OPTIONS;
+
+  /**
+   * Currently selected fractal ID.
+   */
+  selectedFractalId: string = 'koch-snowflake';
+
+  /**
+   * Creates an instance of RxjsComponent.
+   */
+  constructor() {
+    const defaultFractal = getDefaultFractalOption();
+    this.fractal = defaultFractal.factory();
+    this.selectedFractalId = defaultFractal.id;
+  }
 
   /**
    * Gets the fractal description for display.
@@ -160,6 +176,19 @@ export class RxjsComponent implements OnInit, AfterViewInit, OnDestroy {
       this.draw();
     });
     this.subscriptions.push(animationSub);
+  }
+
+  /**
+   * Handles fractal selection change.
+   * @param fractalId The ID of the selected fractal.
+   */
+  onFractalChange(fractalId: string): void {
+    this.selectedFractalId = fractalId;
+    const option = FRACTAL_OPTIONS.find(f => f.id === fractalId);
+    if (option) {
+      this.fractal = option.factory();
+      this.initCanvas();
+    }
   }
 
   /**

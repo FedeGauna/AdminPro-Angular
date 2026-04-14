@@ -2,6 +2,20 @@
   <div class="fractal-layout">
     <aside class="fractal-info">
       <div class="info-header">
+        <div class="fractal-selector">
+          <label for="fractal-select" class="selector-label">Fractal</label>
+          <select 
+            id="fractal-select"
+            class="selector-dropdown"
+            [ngModel]="selectedFractalId"
+            (ngModelChange)="onFractalChange($event)">
+            <option 
+              *ngFor="let option of fractalOptions" 
+              [value]="option.id">
+              {{ option.name }}
+            </option>
+          </select>
+        </div>
         <h2 class="fractal-title">{{ fractalDescription.name }}</h2>
       </div>
       
