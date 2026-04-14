@@ -1,5 +1,5 @@
 import { KochSnowflakeFractal } from './koch-snowflake.fractal';
-import { FractalParams } from '../models/fractal.interface';
+import { FractalParams } from '../models/fractal-params.interface';
 
 describe('KochSnowflakeFractal', () => {
   let fractal: KochSnowflakeFractal;

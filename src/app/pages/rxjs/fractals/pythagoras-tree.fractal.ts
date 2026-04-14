@@ -1,4 +1,5 @@
-import { FractalRenderer, FractalParams, FractalDescription } from '../models/fractal.interface';
+import { FractalParams } from '../models/fractal-params.interface';
+import { FractalDescription } from '../models/fractal-description.interface';
 import { AbstractFractal } from './fractal-base';
 
 /**

@@ -1,5 +1,5 @@
 import { PythagorasTreeFractal } from './pythagoras-tree.fractal';
-import { FractalParams } from '../models/fractal.interface';
+import { FractalParams } from '../models/fractal-params.interface';
 
 describe('PythagorasTreeFractal', () => {
   let fractal: PythagorasTreeFractal;
